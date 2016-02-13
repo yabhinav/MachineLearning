@@ -17,13 +17,15 @@ grad = zeros(size(theta));
 %               Compute the partial derivatives and set grad to the partial
 %               derivatives of the cost w.r.t. each parameter in theta
 
-thetaZ = theta; % ThetaZero
-thetaZ(1) = 0; % since thetazero(1) is zero
+RegTheta = theta; % ThetaZero
+RegTheta(1) = 0; % since normalizedTheta(1) is zero
 
-h = sigmoid(X * theta)
-J = (1/m) *( ( -y'*log(h))- ((1-y')*log(1-h)) ) + (( lambda/2*m) * sum(thetaZ.^ 2) ) ; % regularized
-grad = ( (1/m) * (( h-y)'*X )) + (lambda / (m *thetaZ) ) % regularizedGradient
+h = sigmoid(X * theta) % prediction g(z)
 
+
+J = (1/m) *(( -y'* log(h)) - ((1-y')*log(1-h))) + ( ( lambda/(2*m)) * sum(RegTheta.^ 2) )  ; % regularized cost
+
+grad = ((1/m) .* X'* (h-y) ) +  ( (lambda /m) *RegTheta)   % regularizedGradient
 
 
 % =============================================================

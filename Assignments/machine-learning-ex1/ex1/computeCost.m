@@ -14,7 +14,13 @@ J = 0;
 %               You should set J to the cost.
 
 
-J = (1/(2*m) )*sum(((X*theta)-y).^2 )  % Cost function 
+
+% J = 1/(2*m) * sum( (X * theta - y) *ˆ2); % vectorized form
+
+% unvectorized form
+for i = 1:m,
+    J = J + 1/(2*m) * (theta' * X(i,:)' - y(i)) ** 2;
+end
 
 
 % =========================================================================
