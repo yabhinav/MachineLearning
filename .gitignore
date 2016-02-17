@@ -3,3 +3,4 @@ Assignments/*/*/token.mat
 Assignments/machine-learning-*/*/octave-workspace
 Assignments/machine-learning-*/*/octave-workspace
 octave-workspace
+*.zip
