@@ -45,7 +45,7 @@ for i = 1:length(lambda_vec)
   
   %Compute train/cross validation errors using training examples for lambdai
   [Jtrain,grad_train]=linearRegCostFunction(X, y, thetai, 0); 
-	[Jval,grad_val]=linearRegCostFunction(X, y, thetai, 0);
+	[Jval,grad_val]=linearRegCostFunction(Xval, yval, thetai, 0);
   
   % store cost for train and cross-validation for the lambda i
   error_train(i) = Jtrain;  
